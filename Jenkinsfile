@@ -2,11 +2,11 @@
 import io.libs.Utils
 
 def utils = new Utils()
-def storage_path 
-def repository_path 
-def loc_storage_copy
-def storage_user
-def storage_pass
+//def storage_path 
+//def repository_path 
+//def loc_storage_copy
+//def storage_user
+//def storage_pass
 
 pipeline {
      parameters {
