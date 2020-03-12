@@ -21,12 +21,12 @@ pipeline {
     stages {
         stage('Копирование Хранилища') {
             steps {
-                // script{
+                 script{
                 returnCode = utils.cmd('xcopy ${storage_path} ${loc_storage_copy} /Y /E')
          //             if (returnCode != 0) {
           //                 utils.raiseError("Возникла ошибка копирования репозитория")
       //                 }
-               //         }
+                        }
             }
         }
         stage("Выгрузка в локальный GIT") {
