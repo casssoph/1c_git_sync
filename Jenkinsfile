@@ -31,11 +31,13 @@ pipeline {
         }
         stage("Выгрузка в локальный GIT") {
             steps {
+                 script{
                       returnCode = utils.cmd('cd ${repository_path} \n  gitsync sync --storage-user ${storage_user} --storage-pwd=${storage_pass}  ${loc_storage_copy}')
          //             if (returnCode != 0) {
            //                utils.raiseError("Возникла ошибка Выгрузки в локальный гит")
                    //    }
-            }
+                       }
+                 }
         }
     
     }
