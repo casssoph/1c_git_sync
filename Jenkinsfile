@@ -19,17 +19,17 @@ pipeline {
         stage('Копирование Хранилища') {
             steps {
                 returnCode = utils.cmd('xcopy ${storage_path} ${loc_storage_copy} /Y /E')
-                      if (returnCode != 0) {
-                           utils.raiseError("Возникла ошибка копирования репозитория")
-                       }
+         //             if (returnCode != 0) {
+          //                 utils.raiseError("Возникла ошибка копирования репозитория")
+      //                 }
             }
         }
         stage("Выгрузка в локальный GIT") {
             steps {
                       returnCode = utils.cmd('cd ${repository_path} \n  gitsync sync --storage-user ${storage_user} --storage-pwd=${storage_pass}  ${loc_storage_copy}')
-                      if (returnCode != 0) {
-                           utils.raiseError("Возникла ошибка Выгрузки в локальный гит")
-                       }
+         //             if (returnCode != 0) {
+           //                utils.raiseError("Возникла ошибка Выгрузки в локальный гит")
+                   //    }
             }
         }
     
