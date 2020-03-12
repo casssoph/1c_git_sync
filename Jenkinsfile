@@ -23,7 +23,8 @@ pipeline {
         stage('Копирование Хранилища') {
             steps {
                  script{
-                returnCode = utils.cmd('xcopy ${storage_path} ${loc_storage_copy} /Y /E')
+                      txtcmd = "xcopy ${storage_path} ${loc_storage_copy} /Y /E"
+                returnCode = utils.cmd(txtcmd)
          //             if (returnCode != 0) {
           //                 utils.raiseError("Возникла ошибка копирования репозитория")
       //                 }
@@ -33,7 +34,10 @@ pipeline {
         stage("Выгрузка в локальный GIT") {
             steps {
                  script{
-                      returnCode = utils.cmd('cd ${repository_path} \n  gitsync sync --storage-user ${storage_user} --storage-pwd=${storage_pass}  ${loc_storage_copy}')
+                 txtcmd = "cd ${repository_path} \n  gitsync sync --storage-user ${storage_user} --storage-pwd=${storage_pass}  ${loc_storage_copy}"
+                returnCode = utils.cmd(txtcmd)
+                      
+    
          //             if (returnCode != 0) {
            //                utils.raiseError("Возникла ошибка Выгрузки в локальный гит")
                    //    }
